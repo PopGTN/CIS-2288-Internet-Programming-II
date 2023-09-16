@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Holland College Student Registration</title>
-
 </head>
+<!--
+Author: Joshua Mckenna
+Date: 2023/09/16
+Class: CIS-2288
+Description:
+This is the main page that hold the form that is required to be made in the assignment 1 project.
+The form is to all the students to register for holland college. The from once submitted will
+pass the information to the proccessStudentReg.php file where it then is processed.
+-->
 <body style="align-items: center">
 <main style=" display: flex; justify-content: center; align-items: center; height: 100%;">
     <div style="width: 40%">
@@ -78,14 +86,14 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Scholarship Amount</td>
+                    <td>Scholarship Amount:</td>
                     <td>
-                        <input type="text" size="7" value="0" name="Scholarship" id="Scholarship">
+                        <input type="number" style="width:80px" min="0" value="0" name="scholarship" id="scholarship">
                     </td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Submit"></td>
+                    <td> &#160; &#160; &#160; &#160;<input type="submit" value="Submit"></td>
                 </tr>
             </table>
         </form>

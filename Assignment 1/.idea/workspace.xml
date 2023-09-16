@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c19aa88-dbd9-45a2-bdc4-7574619fbe5f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/processStudentReg.php" beforeDir="false" afterPath="$PROJECT_DIR$/processStudentReg.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/studentReg.html" beforeDir="false" afterPath="$PROJECT_DIR$/studentReg.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CIS-2288 Class 2 Practice/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CIS-2288 Class 2 Practice/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +57,7 @@
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/xampp/htdocs/cis2288/Assignment 1",
+    "last_opened_file_path": "C:/xampp/htdocs/cis2288/CIS-2288 Class 2 Practice",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,7 +81,7 @@
       <workItem from="1694884156815" duration="75000" />
       <workItem from="1694884316554" duration="1545000" />
       <workItem from="1694886517868" duration="2995000" />
-      <workItem from="1694890420042" duration="864000" />
+      <workItem from="1694890420042" duration="7364000" />
     </task>
     <servers />
   </component>
