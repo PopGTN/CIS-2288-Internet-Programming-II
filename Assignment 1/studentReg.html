@@ -5,37 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Holland College Student Registration</title>
 </head>
-<body>
-<div style=" margin: 0 auto; min-width: 80vw; align-content: center">
-    <form action="processStudentReg.php" method="POST">
-        <table width="1000">
-            <caption style="background-color: #cccccc;">Holland College Student Registration</caption>
-            <tr>
-                <td>First Name:</td>
-                <td><input type="text" id="fName" name="fName" style="width: 100%"></td>
-            </tr>
-            <tr>
-                <td>Last Name:</td>
-                <td><input type="text" id="lName" name="lName" style="width: 100%"></td>
-            </tr>
-            <tr>
-                <td>Address Street:</td>
-                <td><input type="text" id="aName" name="aName"></td>
-            </tr>
-            <tr>
-                <td>Address Number:</td>
-                <td><input type="text" id="aNumber" name="aNumber"></td>
-            </tr>
-            <tr>
-                <td>Phone Number:</td>
-                <td><input type="text" id="pNumber" name="pNumber"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Submit"></td>
-            </tr>
-        </table>
-    </form>
-</div>
+<body style="align-items: center">
+<main style=" display: flex; justify-content: center; align-items: center; height: 100%;">
+    <div style="width: 40%">
+        <form action="processStudentReg.php" method="POST">
+            <table style="min-width: 100%">
+                <caption style="background-color: #cccccc;">Holland College Student Registration
+                </caption>
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" id="fName" name="fName" style="width: 100%"></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type="text" id="lName" name="lName" style="width: 100%"></td>
+                </tr>
+                <tr>
+                    <td>Address Street:</td>
+                    <td><input type="text" id="aName" name="aName"></td>
+                </tr>
+                <tr>
+                    <td>Address Number:</td>
+                    <td><input type="text" id="aNumber" name="aNumber"></td>
+                </tr>
+                <tr>
+                    <td>Phone Number:</td>
+                    <td><input type="text" id="pNumber" name="pNumber"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</main>
 </body>
 </html>
