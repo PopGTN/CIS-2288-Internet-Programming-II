@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bobs Order Form</title>
+</head>
+<body>
+    <form action="processorder.php" method="post">
+        <table style="border: 0px;">
+            <tr style="background: #cccccc;">
+                <td style="width: 150px; text-align: center;">Item</td>
+                <td style="width: 15px; text-align: center;">Quantity</td>
+            </tr>
+            <tr>
+                <td>Tires</td>
+                <td><input type="text" name="tireqty" size="3"
+                           maxlength="3" /></td>
+            </tr>
+            <tr>
+                <td>Oil</td>
+                <td><input type="text" name="oilqty" size="3"
+                           maxlength="3" /></td>
+            </tr>
+            <tr>
+                <td>Spark Plugs</td>
+                <td><input type="text" name="sparkqty" size="3"
+                           maxlength="3" /></td>
+            </tr>
+            <tr>
+                <td>Rims:</td>
+                <td><select name="rims" id="rimqty">
+                    <option value="100">Chrome</option>
+                    <option value="200">Aluminium</option>
+                    <option value="300">Cast Iron</option>
+                    <option value="400">Steel</option>
+                </select> </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><input type="submit" value="Submit
+                Order" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
