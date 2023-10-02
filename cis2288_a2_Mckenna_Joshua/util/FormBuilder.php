@@ -2,8 +2,8 @@
 Author: Joshua Mckenna
 Date: 2023/09/27
 Description:
-    This class is for making forms alot quicker.
-    This Class will be updated throughout the school year when need!
+    This class is for making forms alot quicker. This Class will be updated throughout the school year when need!
+    I regert putting this effort. in I hope it will be a benefit in the future 😒
 -->
 
 <?php
@@ -53,9 +53,9 @@ class FormBuilder
     public function addInput($type, $name, $value = '', $attributes = '')
     {
         if ($this->linebreaks) {
-            $this->form .= "<input type='{$type}' name='{$name}' value='{$value}' {$attributes}><br>";
+            $this->form .= "<input type='{$type}' id='{$name}' name='{$name}' value='{$value}' {$attributes}><br>";
         } else {
-            $this->form .= "<input type='{$type}' name='{$name}' value='{$value}' {$attributes}>";
+            $this->form .= "<input type='{$type}' id='{$name}'  name='{$name}' value='{$value}' {$attributes}>";
         }
     }
 
@@ -79,12 +79,12 @@ class FormBuilder
         }
     }
 
-    public function addButton($type = 'submit', $text = 'Submit', $attributes = '')
+    public function addButton($type = 'submit', $text = 'Submit', $value = 'submit', $attributes = '')
     {
         if ($this->linebreaks) {
-            $this->form .= "<button type='{$type}' {$attributes}>{$text}</button><br>";
+            $this->form .= "<button type='{$type}' {$attributes} value='{$value}'>{$text}</button><br>";
         } else {
-            $this->form .= "<button type='{$type}' {$attributes}>{$text}</button>";
+            $this->form .= "<button type='{$type}' {$attributes} value='{$value}'>{$text}</button>";
         }
     }
 
@@ -129,7 +129,7 @@ class FormBuilder
     public function addDataList($name, $items, $attributes = '')
     {
         if (is_array($items)) {
-            $this->form .= '<select id="' . $name . '" name="' . $name . '">';
+            $this->form .= '<datalist id="' . $name . '" name="' . $name . '">';
 
             if (FormBuilderUtil::isMultidimensionalArray($items)) {
 
@@ -144,10 +144,10 @@ class FormBuilder
             }
 
             if ($this->linebreaks) {
-                $this->form .= '</select> <br>';
+                $this->form .= '</datalist> <br>';
 
             } else {
-                $this->form .= '</select>';
+                $this->form .= '</data>';
             }
 
 
@@ -161,91 +161,24 @@ class FormBuilder
         $this->form .= $html;
     }
 
-    public function build()
-    {
-        return $this->form . '</form>';
-    }
 
-    public function toString()
-    {
-        return $this->form;
-    }
-}
+    //credits for this alert box
+    //https://sl.bing.net/gRzv5dfqvkq
+    public function setDoeslinebreaks($bool){
 
-/*
-class BootStrapFormBuilder
-{
-    private $form;
-
-    public function __construct($action = '', $method = 'post')
-    {
-        $this->form = "<form action='{$action}' method='{$method}' class='container'>";
-    }
-
-    public function addInput($type, $name, $value = '', $label = '', $attributes = '')
-    {
-        $this->form .= "<div class='mb-3'>";
-        if ($label != '') {
-            $this->form .= "<label for='{$name}' class='form-label'>{$label}</label>";
-        }
-        $this->form .= "<input type='{$type}' class='form-control' id='{$name}' name='{$name}' value='{$value}' {$attributes}>";
-        $this->form .= "</div>";
-    }
-
-    public function addTextarea($name, $value = '', $label = '', $attributes = '')
-    {
-        $this->form .= "<div class='mb-3'>";
-        if ($label != '') {
-            $this->form .= "<label for='{$name}' class='form-label'>{$label}</label>";
-        }
-        $this->form .= "<textarea class='form-control' id='{$name}' name='{$name}'  {$attributes}>{$value}</textarea>";
-        $this->form .= "</div>";
-    }
-
-    public function addButton($type = 'submit', $text = 'Submit', $attributes = 'class=\'btn btn-primary\' ')
-    {
-        $this->form .= "<button type='{$type}' {$attributes}>{$text}</button>";
-    }
-
-
-    public function selectInput($name, $items, $lable = '', $attributes = '')
-    {
-        if (is_array($items)) {
-            $this->form .= "<div class='mb-3'>";
-            if ($label != '') {
-                $this->form .= "<label for='{$name}' class='form-label' {$attributes}>{$label}</label>";
-            }
-            $this->form .= '<select id="' . $name . '" name=" ">';
-
-            if (self::isMultidimensionalArray($items)) {
-
-                for ($row = 0; $row < count($items); $row++) {
-                    $this->form .= ' <option value="' . $items[$row][1] . '">' . $items[$row][0] . '</option>';
-                }
-
-            } else {
-                foreach ($items as $item) {
-                    $this->form .= ' <option value="' . $item . '">' . $item . '</option>';
-                }
-            }
-            $this->form .= '</select>';
-            $this->form .= "</div>";
-
+        if (is_bool($bool)){
+        $this->linebreaks = $bool;
         } else {
-            $this->form .= "<div class='mb-3'> <p>Could not load Select Box! The provide variable is not a array</p></div>";
+            echo '<script type="text/javascript">';
+            echo 'alert("Error with calling the setDoeslinebreaks() method from FormBuilderUtil. The passed in Variable is not a a boolean");';
+            echo '</script>';
         }
     }
 
-    public function addCustomHTML($html)
-    {
-        $this->form .= $html;
-    }
 
     public function build()
     {
         return $this->form . '</form>';
     }
 }
-*/
-
 ?>

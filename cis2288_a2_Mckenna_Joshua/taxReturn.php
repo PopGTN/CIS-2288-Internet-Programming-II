@@ -1,14 +1,13 @@
+<!--
+Author: Joshua Mckenna
+Date: 2023/09/27
+Description:
+    Main page of this assignment as for the information and posts it to prroccessTaxReturn.phpl
+-->
 <?php
 include_once 'util/CisUtil.php';
 include_once 'util/FormBuilder.php'
 ?>
-
-    <!--<!DOCTYPE html>
-<html>
-<head>
-    <title>2023 PEI Income Tax Return Form</title>
-    <?php /*include_once 'css/style.php'; */ ?>
-</head>-->
 <?php CisUtil::startPage('2023 PEI Income Tax Return Form'); ?>
     <main>
         <div class="main">
@@ -44,31 +43,46 @@ include_once 'util/FormBuilder.php'
 
                 $formBuilder->addCustomHTML('</td><td>');
 
-                $formBuilder->addLabel("lName", "Last Name Name:");
+                $formBuilder->addLabel("lName", "Last Name:");
                 $formBuilder->addInput("text", "lName");
 
 
                 $formBuilder->addCustomHTML('</td></tr> <tr><td>');
 
                 $formBuilder->addLabel("address", "Address: ");
-                $formBuilder->addInput("address", "address");
+                $formBuilder->addInput("text", "address");
 
 
                 $formBuilder->addCustomHTML('</td><td>');
 
                 $formBuilder->addLabel("postalCode", "Postal Code:");
-                $formBuilder->addInput("postalCode", "postalCode");
+                $formBuilder->addInput("text", "postalCode");
 
                 $formBuilder->addCustomHTML('</td></tr> <tr><td>');
 
+                $formBuilder->addLabel("income", "Gross Income:");
+                $formBuilder->addInput("number", "income");
+
+                $formBuilder->addCustomHTML('</td></tr> <tr><td></td><td>');
+                $formBuilder->addCustomHTML('</td></tr> <tr><td>');
+
+                //Turns off auto line breaker
+                $formBuilder->setDoeslinebreaks(false);
+
+                $formBuilder->addLabel("student", "Are you a student?");
+                $formBuilder->addInput("checkbox","student","student");
+
+                $formBuilder->addCustomHTML('</td></tr> <tr><td></td><td>');
+
+
+                $formBuilder->addInput("submit", "submit","Submit", 'class="btn btn-primary"');
 
                 $formBuilder->addCustomHTML('</td><td>');
+
 
                 echo $formBuilder->build();
 
                 ?>
-                <!-- Repeat for last name, postal code, and address -->
-
 
             </div>
         </div>
