@@ -6,87 +6,62 @@ Description:
 -->
 <?php
 include_once 'util/CisUtil.php';
-include_once 'util/FormBuilder.php'
 ?>
 <?php CisUtil::startPage('2023 PEI Income Tax Return Form'); ?>
-    <main>
-        <div class="main">
-            <header>
-                <h1>2023 PEI Income Tax Return Form</h1>
-            </header>
-            <div class="body">
-                <?php
-                $titles = array(
-                    "Mr.",
-                    "Mrs.",
-                    "Ms",
-                    "Dr",
-                    "Capt",
-                    "Prof",
-                    "Rev",
-                    "Sir",
-                    "Madam"
-                );
+<main>
+    <div class="main">
+        <header>
+            <h1>2023 PEI Income Tax Return Form</h1>
+        </header>
+        <div class="body">
+            <form action='processTaxReturn.php' method='post'>
+                <table class='taxForm'>
+                    <tr>
+                        <td><label for='title'>Title:</label><br><select id="title" name="title">
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Dr">Dr</option>
+                                <option value="Capt">Capt</option>
+                                <option value="Prof">Prof</option>
+                                <option value="Rev">Rev</option>
+                                <option value="Sir">Sir</option>
+                                <option value="Madam">Madam</option>
+                            </select> <br></td>
+                    </tr>
+                    <tr>
+                        <td><label for='fName'>First Name: </label><br><input type='text' id='fName' name='fName'
+                                                                              value=''><br></td>
+                        <td><label for='lName'>Last Name:</label><br><input type='text' id='lName' name='lName'
+                                                                            value=''><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for='address'>Address: </label><br><input type='text' id='address' name='address'
+                                                                             value=''><br></td>
+                        <td><label for='postalCode'>Postal Code:</label><br><input type='text' id='postalCode'
+                                                                                   name='postalCode' value=''><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for='income'>Gross Income:</label><br><input type='number' id='income' name='income'
+                                                                                value=''><br></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><label for='student'>Are you a student?</label> <input type='checkbox' id='student'
+                                                                                   name='student' value='student'></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type='submit' id='submit' name='submit' value='Submit' class="btn btn-primary"></td>
+                        <td>
+            </form>
 
-                $formBuilder = new FormBuilder("processTaxReturn.php", "post", true);
-
-                //on First Column on first row
-                $formBuilder->addCustomHTML("<table class='taxForm'><tr><td>");
-                $formBuilder->addLabel('title', "Title:");
-                $formBuilder->addSelect('title', $titles);
-
-                //First Column on second row
-                $formBuilder->addCustomHTML("</td></tr><tr><td>");
-
-                $formBuilder->addLabel("fName", "First Name: ");
-                $formBuilder->addInput("text", "fName");
-
-                $formBuilder->addCustomHTML('</td><td>');
-
-                $formBuilder->addLabel("lName", "Last Name:");
-                $formBuilder->addInput("text", "lName");
-
-
-                $formBuilder->addCustomHTML('</td></tr> <tr><td>');
-
-                $formBuilder->addLabel("address", "Address: ");
-                $formBuilder->addInput("text", "address");
-
-
-                $formBuilder->addCustomHTML('</td><td>');
-
-                $formBuilder->addLabel("postalCode", "Postal Code:");
-                $formBuilder->addInput("text", "postalCode");
-
-                $formBuilder->addCustomHTML('</td></tr> <tr><td>');
-
-                $formBuilder->addLabel("income", "Gross Income:");
-                $formBuilder->addInput("number", "income");
-
-                $formBuilder->addCustomHTML('</td></tr> <tr><td></td><td>');
-                $formBuilder->addCustomHTML('</td></tr> <tr><td>');
-
-                //Turns off auto line breaker
-                $formBuilder->setDoeslinebreaks(false);
-
-                $formBuilder->addLabel("student", "Are you a student?");
-                $formBuilder->addInput("checkbox","student","student");
-
-                $formBuilder->addCustomHTML('</td></tr> <tr><td></td><td>');
-
-
-                $formBuilder->addInput("submit", "submit","Submit", 'class="btn btn-primary"');
-
-                $formBuilder->addCustomHTML('</td><td>');
-
-
-                echo $formBuilder->build();
-
-                ?>
-
-            </div>
         </div>
-    </main>
-    <!--</body>
-    </html>-->
+    </div>
+</main>
+<!--</body>
+</html>-->
 <?php CisUtil::endPage(); ?>
