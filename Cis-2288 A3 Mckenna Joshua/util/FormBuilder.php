@@ -41,7 +41,7 @@ class FormBuilder
     /**
      * @param $action
      * @param $method
-     * @param $autoBR, Wether or not if it goes to a new line after each input
+     * @param $autoBR , Wether or not if it goes to a new line after each input
      * @param $attributes
      */
     public function __construct($action = '', $method = 'post', $autoBR = true, $attributes = '')
@@ -99,7 +99,7 @@ class FormBuilder
     public function addSelect($name, $items, $attributes = '')
     {
         if (is_array($items)) {
-            $this->form .= '<select id="' . $name . '" name="' . $name . '" '.$attributes.'>';
+            $this->form .= '<select id="' . $name . '" name="' . $name . '" ' . $attributes . '>';
 
             if (FormBuilderUtil::isMultidimensionalArray($items)) {
 
@@ -161,13 +161,30 @@ class FormBuilder
         $this->form .= $html;
     }
 
+    public function addDiv($option = "c", $classes = "", $attributes = "")
+    {
+        $html = "";
+
+        switch (strtolower($option)) {
+            case "c":
+            case "close":
+                $this->form .= "</div>";
+                break;
+            case "open":
+            case "o":
+                $this->form .= '<div class="'.$classes.'" '.$attributes.'>';
+                break;
+        }
+    }
+
 
     //credits for this alert box
     //https://sl.bing.net/gRzv5dfqvkq
-    public function setDoeslinebreaks($bool){
+    public function setDoeslinebreaks($bool)
+    {
 
-        if (is_bool($bool)){
-        $this->linebreaks = $bool;
+        if (is_bool($bool)) {
+            $this->linebreaks = $bool;
         } else {
             echo '<script type="text/javascript">';
             echo 'alert("Error with calling the setDoeslinebreaks() method from FormBuilderUtil. The passed in Variable is not a a boolean");';
@@ -181,4 +198,5 @@ class FormBuilder
         return $this->form . '</form>';
     }
 }
+
 ?>

@@ -1,0 +1,35 @@
+body {
+    background-color: #212529;
+/*    background: repeating-linear-gradient(
+            45deg,
+            #606dbc,
+            #606dbc 10px,
+            #465298 10px,
+            #465298 20px
+    );*/
+}
+
+.page{
+    background-color: white;
+}
+
+.fill-page {
+    min-height: 100vh;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    /*background: #FFCEC2;*/
+}
+
+.container-center,
+.container-fluid-center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

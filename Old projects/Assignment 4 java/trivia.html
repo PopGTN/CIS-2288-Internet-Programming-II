@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+* Author: Joshua Mckenna
+* Date: 2023/03/24
+* Purpose: PC quiz Trivia
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+<!--    <script src="js/utility.js"></script>-->
+    <script src="trivProccess.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+</head>
+<style>
+    .ErrorStyle {
+        color: red;
+        display: none;
+    }
+</style>
+<body class="container-fluid">
+<div class="border container-md">
+
+    <h1 class="text-center">Computer Knowledge Quiz</h1>
+    <p>This is form is a test that will test your knowledge about Computer.</p>
+    <form>
+        <div class="mb-3">
+            <label for="Question1" class="form-label">1) Who made the first public personal computer?</label>
+            <!--John Blankenbaker made the Kenbak-1 personal computer-->
+            <input type="text" id="Question1" class="form-control">
+            <span class="ErrorStyle form-text" id="Question1Error">* Required</span>
+        </div>
+        <div class="mb-3">
+            <label for="Question2" class="form-label">2) Who made Windows?</label>
+            <input type="text" id="Question2" class="form-control">
+            <span class="ErrorStyle form-text" id="Question2Error">* Required</span>
+        </div>
+        <div class="mb-3">
+            <label for="Question3">3) What was the first Nvidia GPU?</label>
+            <select id="Question3" class="form-select">
+                <option value="0" selected>Select an Answer</option>
+                <option  value="1">NV4</option>
+                <option  value="2">STG-2000</option> <!--This is the Correct Answer-->
+                <option  value="3">Riva 128</option>
+                <option  value="4">NV5</option>
+            </select>
+            <span class="ErrorStyle form-text" id="Question3Error">* Required</span>
+        </div>
+        <div class="mb-3">
+            <label for="Question4">4) Who orginal was chip manufacture for Intel?</label>
+            <select id="Question4" class="form-select">
+                <option value="0" selected>Select an Answer</option>
+                <option value="2">APPLE</option>
+                <option value="3">IBM</option>
+                <option value="1">AMD</option>
+                <option value="4">Nvidia</option>
+            </select>
+            <span class="ErrorStyle form-text" id="Question4Error">* Required</span>
+        </div>
+        <div class="">
+            <label class="">5) What Version of Windows version was the first to uses the kernal that is still used
+                today?</label>
+            <span class="ErrorStyle form-text" id="Question5Error"> * Required</span>
+            <div class="mb-3 mt-2">
+                <input class="form-check-input" type="radio" name="Question5" id="Question5Op1" value="1">
+                <label class="form-check-label" for="Question5Op4"> Windows NT</label>
+
+                <input class="form-check-input ms-5" type="radio" name="Question5" id="Question5Op2" value="2">
+                <label class="form-check-label" for="Question5Op4">Windows 3</label>
+            </div>
+            <div class="mb-3">
+                <input class="form-check-input" type="radio" name="Question5" i3d="Question5Op3" value="3">
+                <label class="form-check-label" for="Question5Op4">Windows 95</label>
+
+                <input class="form-check-input ms-5" type="radio" name="Question5" id="Question5Op4" value="4">
+                <label class="form-check-label" for="Question5Op4">Windows XP</label>
+            </div>
+        </div>
+        <div class="">
+            <label class="">6) What Version of Windows version was the first uses the kernal that is still used
+                today?</label>
+            <span class="ErrorStyle form-text" id="Question6Error">* Required</span>
+            <div class="mb-3 mt-2">
+                <input class="form-check-input" type="radio" value="1" name="Question6" id="Question6Op1">
+                <label class="form-check-label" for="Question6Op1"> Windows NT</label>
+
+                <input class="form-check-input ms-5" type="radio" value="2" name="Question6" id="Question6Op2">
+                <label class="form-check-label" for="Question6Op2" >Windows 3</label>
+            </div>
+            <div class="mb-3">
+                <input class="form-check-input" type="radio" value="3" name="Question6" id="Question6p3">
+                <label class="form-check-label" for="Question6p3">Windows 95</label>
+
+                <input class="form-check-input ms-5" type="radio" value="4" name="Question6" id="Question6Op4">
+                <label class="form-check-label" for="Question6p3">Windows XP</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="mb-2">7) What is need to make a computer to run?</label>
+            <span class="ErrorStyle form-text" id="Question7Error">* Required</span>
+            <div class="mb-1">
+                <input class="form-check-input" type="checkbox" id="Question7Op1" name="Question7[]" value="GPU">
+                <label class="form-label" for="Question7Op1">GPU</label>
+            </div>
+            <div class="mb-2">
+                <input class="form-check-input" type="checkbox" id="Question7Op2" name="Question7[]" value="RAM">
+                <label for="Question7Op2">RAM</label>
+            </div>
+            <div class="mb-2">
+                <input class="form-check-input" type="checkbox" id="Question7Op3" name="Question7[]" value="CPU">
+                <label for="Question7Op3">CPU</label>
+            </div>
+            <div class="mb-2">
+                <input class="form-check-input" type="checkbox" id="Question7Op4" name="Question7[]" value="Motherboard">
+                <label for="Question7Op4">Motherboard</label>
+            </div>
+            <div class="mb-2">
+                <input class="form-check-input" type="checkbox" id="Question7Op5" name="Question7[]" value="Power Supply">
+                <label for="Question7Op5">Power Supply</label>
+            </div>
+            <div class="mb-2">
+                <input class="form-check-input" type="checkbox" id="Question7Op6" name="Question7[]" value="Storage">
+                <label for="Question7Op6">Hard Drive / n.2 / SDD</label>
+            </div>
+            <div class="mb-2">
+                <input class="form-check-input" type="checkbox" id="Question7Op6" name="Question7[]" value="keyMouse">
+                <label for="Question7Op6">Mouse & Keyboard</label>
+            </div>
+            <div class="mb-2">
+                <input class="form-check-input" type="checkbox" id="Question7Op6" name="Question7[]" value="Monitor">
+                <label for="Question7Op6">Monitor</label>
+            </div>
+            <div class="mb-2">
+                <input class="form-check-input" type="checkbox" id="none" name="Question7[]" value="above">
+                <label for="none">None of the above</label>
+            </div>
+            <div class="mb-2">
+                <input class="form-check-input" type="checkbox" id="none" name="Question7[]" value="allOfAbove">
+                <label for="none">All of the above</label>
+            </div>
+        </div>
+        <button id="submit" type="button" class="btn btn-primary mb-3">Submit</button>
+    </form>
+    <h1 class="text-center" id="score"></h1>
+</div>
+
+</body>
+</html>
