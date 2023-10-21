@@ -1,20 +1,18 @@
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background-color: #212529;
-/*    background: repeating-linear-gradient(
-            45deg,
-            #606dbc,
-            #606dbc 10px,
-            #465298 10px,
-            #465298 20px
-    );*/
+}
+main {
+    flex: 1 0 auto;
+}
+footer {
+    flex-shrink: 0;
 }
 
 .page{
     background-color: white;
-}
-
-.fill-page {
-    min-height: 100vh;
 }
 
 .center {
@@ -32,4 +30,6 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
 

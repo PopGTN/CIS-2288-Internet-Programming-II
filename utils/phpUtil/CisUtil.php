@@ -14,7 +14,7 @@ Description:
      * @param $html "Custom html to add inside the head tags"
      * @return void
      */
-    public static function startPage($title = 'My Website', $html = '')
+    public static function startPage($title = 'My Website', $html = '' )
     {
         ?>
         <!DOCTYPE html>
@@ -23,12 +23,7 @@ Description:
             <title><?php echo $title; ?></title>
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <!--Commented out because its  include in project-->
-
-            <link href="/css/bootstrap.css" rel="stylesheet">
-            <link href="../css/bootstrap.css" rel="stylesheet">
-            <link href="css/bootstrap.css" rel="stylesheet">
-
-
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
             <?php echo $html; ?>
         </head>
         <body>
@@ -43,9 +38,8 @@ Description:
 
         <!--Commented out because its  include in project-->
 
-        <script src="/js/bootstrap.bundle.js"</script>
-        <script src="../js/bootstrap.bundle.js"</script>
-        <script src="js/bootstrap.bundle.js"</script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
         </body>
         </html>
     <?php }
@@ -97,25 +91,25 @@ Description:
 
 
     /**
-     * @param $text "either array of Custom html or just text"
+     * @param $text  "either array of Custom html or just text"
      * @param $style "Set all the style here. Leave out style for default Settings" <br>
      * $style = [ <br>
-     * 'bgColor' => "#D3D3D3FF", <br>
-     * 'height' => "200px", <br>
-     * 'fontColor' => 'black', <br>
-     * 'classes' => 'container', <br>
-     * 'titleClasses' => 'display-1', <br>
-     * 'STClasses' => '', <br>
-     * 'underline' => true, <br>
-     * 'underlineColor' => "black", <br>
-     * 'underlineWidth' => "2px", <br>
-     * 'STUnderline' => false, <br>
-     * 'STUnderlineColor' => "black", <br>
-     * 'STUnderlineSize' => "3px", <br>
-     * 'bottomSpacing' => '1rem', <br>
-     * 'textAlign'=> 'center', <br>
-     * 'STTextAlign'=> 'center', <br>
-     * ];
+        'bgColor' => "#D3D3D3FF", <br>
+        'height' => "200px", <br>
+        'fontColor' => 'black', <br>
+        'classes' => 'container', <br>
+        'titleClasses' => 'display-1', <br>
+        'STClasses' => '', <br>
+        'underline' => true, <br>
+        'underlineColor' => "black", <br>
+        'underlineWidth' => "2px", <br>
+        'STUnderline' => false, <br>
+        'STUnderlineColor' => "black", <br>
+        'STUnderlineSize' => "3px", <br>
+        'bottomSpacing' => '1rem', <br>
+        'textAlign'=> 'center', <br>
+        'STTextAlign'=> 'center', <br>
+        ];
      * @return void
      */
     public static function header($text = "Acme Accessories", $style = [])
@@ -133,25 +127,25 @@ Description:
             'STUnderline' => false,
             'STUnderlineSize' => "3px",
             'bottomSpacing' => '1rem',
-            'textAlign' => 'center',
-            'STTextAlign' => 'center',
+            'textAlign'=> 'center',
+            'STTextAlign'=> 'center',
         ];
         // Merge default style with provided style
         $style = array_merge($defaultStyle, $style);
 
 
         //Set it the font colour the same
-        if (!isset($style['STFontColor'])) {
-            $style['STFontColor'] = $style['fontColor'];
+        if (!isset($style['STFontColor'])){
+            $style['STFontColor'] =  $style['fontColor'];
         }
-        if (!isset($style['underlineColor'])) {
-            $style['underlineColor'] = $style['fontColor'];
+        if (!isset($style['underlineColor'])){
+            $style['underlineColor'] =  $style['fontColor'];
         }
-        if (!isset($style['underlineColor'])) {
-            $style['STUnderlineColor'] = $style['STFontColor'];
+        if (!isset($style['underlineColor'])){
+            $style['STUnderlineColor'] =  $style['STFontColor'];
         }
-        if (!isset($style['STBottomSpacing'])) {
-            $style['STBottomSpacing'] = $style['bottomSpacing'];
+        if (!isset($style['STBottomSpacing'])){
+            $style['STBottomSpacing'] =  $style['bottomSpacing'];
         }
 
 
@@ -179,35 +173,35 @@ Description:
                     ?>
                     <h1 class="<?= $style['titleClasses'] ?>"
                         style="
-                                width: fit-content; margin: auto;
-                                color: <?= $style['fontColor'] ?>;
-                                margin-bottom: <?= $style['bottomSpacing'] ?>;
-                                text-align: <?= $style['STTextAlign'] ?>;
+                            width: fit-content; margin: auto;
+                            color: <?= $style['fontColor']?>;
+                            margin-bottom: <?= $style['bottomSpacing']?>;
+                            text-align: <?= $style['STTextAlign']?>;
                         <?php if ($style['underline']) { ?>
-                                border-bottom-color: <?= $style['underlineColor']?>;
+                            border-bottom-color: <?= $style['underlineColor']?>;
                             border-bottom-style: solid;
                             border-bottom-width: <?=$style['underlineWidth'] ?>;
                         <?php } ?>
 
-                                ">
+                        ">
                         <?= $text[0] ?>
                     </h1>
                     <?php
-                    for ($x = 1; $x < count($text); $x++) { ?>
+                    for ($x = 1; $x < count($text); $x++) {?>
                         <p class="<?= $style['STClasses'] ?>"
-                           style="
-                                   color: <?= $style['STFontColor'] ?>;
-                                   text-align: <?= $style['STTextAlign'] ?>;
-                           <?php if ($x != (count($text) - 1)) { ?>
-                                   margin-bottom: <?= $style['STBottomSpacing']?>;
+                            style="
+                            color: <?= $style['STFontColor']?>;
+                            text-align: <?= $style['STTextAlign']?>;
+                        <?php if ($x != (count($text) - 1)) { ?>
+                            margin-bottom: <?= $style['STBottomSpacing']?>;
                         <?php } ?>
-                           <?php if ($style['STUnderline']) { ?>
-                                   border-bottom-color: <?= $style['STUnderlineColor']?>;
+                        <?php if ($style['STUnderline']) { ?>
+                            border-bottom-color: <?= $style['STUnderlineColor']?>;
                             border-bottom-width: <?=$style['STUnderlineWidth'] ?>;
                             border-bottom-style: solid;
                         <?php } ?>
 
-                                   ">
+                                    ">
                             <?= $text[$x] ?>
                         </p>
 
@@ -216,11 +210,11 @@ Description:
                 } else { ?>
                     <h1 class="<?= $style['titleClasses'] ?>"
                         style="
-                                color: <?= $style['fontColor'] ?>;
-                                margin-bottom: <?= $style['bottomSpacing'] ?>;
-                                text-align: <?= $style['STTextAlign'] ?>;
+                                color: <?= $style['fontColor']?>;
+                                margin-bottom: <?= $style['bottomSpacing']?>;
+                                text-align: <?= $style['STTextAlign']?>;
                         <?php if ($style['underline']) { ?>
-                                border-bottom-color: <?= $style['underlineColor']?>;
+                            border-bottom-color: <?= $style['underlineColor']?>;
                             border-bottom-style: solid;
                             border-bottom-width: <?=$style['underlineWidth'] ?>;
                         <?php } ?>

@@ -3,7 +3,7 @@ require_once 'util/CisUtil.php';
 
 CisUtil::startPage("Acme Accessories Inc.", '<link href="css/Custom.css" rel="stylesheet">');
 CisUtil::navbar();
-CisUtil::header("View Orders", array('fontColour'=>'','txtClasses' => 'mb-3 border-bottom border-2 border-black display-4'));
+CisUtil::header(array("View Orders","Here you can view your orders. Here you can view your orders. Here you can view your orders"), array('fontColour'=>'black', 'titleClasses' => 'display-4 mx-auto'));
 ?>
 <main class="container fill-page bg-white ">
 
