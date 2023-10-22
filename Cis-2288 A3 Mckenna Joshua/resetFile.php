@@ -1,4 +1,6 @@
 <?php
+require_once 'util/CisUtil.php';
+
 $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
 
 $pathToFile = "$DOCUMENT_ROOT/../orders/caseOrders.txt";
@@ -20,7 +22,16 @@ if (!$fp) {
     CisUtil::endPage();
     exit();
 }
-
+CisUtil::startPage("Resetting File...", '<link href="css/Custom.css" rel="stylesheet">');
+CisUtil::navbar();
+?>
+<main class="mainBody container fill-page bg-white ">
+    <p>Go Back to View Orders Page by clicking this button → <a class='btn btn-outline-primary' href='orderForm.php'>Go Back</a></p>
+</main>
+<?php
+CisUtil::footer();
+CisUtil::endPage();
 fclose($fp);
-header("Location: view.php");
+
+//header("Location: view.php");
 ?>

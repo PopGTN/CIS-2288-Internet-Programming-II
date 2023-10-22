@@ -3,6 +3,7 @@ Author: Joshua Mckenna
 Date: 2023/09/27
 Description:
     This class is for making random tasks alot quicker.  This Class will be updated throughout the school year when need!
+	Modified by Joshua Mckenna since 2023/10/22
 -->
 
 <?php class CisUtil
@@ -217,6 +218,21 @@ public static function header($text = "Acme Accessories", $style = [])
             </div>
         </header>
         <?php
+    }
+	
+	public static function dollarMoneyFormate($money)
+    {
+        return "$" . number_format($money, 2, '.', ',');
+
+    }
+	public static function moneyFormate($money, $symbol = '$')
+    {
+        return "$" . number_format($money, 2, '.', ',');
+
+    }
+
+    public static function sendMessageBox($message){
+        echo "<script>alert('". $message ."')</script>";
     }
 
 }

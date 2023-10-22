@@ -3,6 +3,8 @@ Author: Joshua Mckenna
 Date: 2023/09/27
 Description:
     This class is for making random tasks alot quicker.  This Class will be updated throughout the school year when need!
+
+Modified by Joshua Mckenna since 2023/10/22
 -->
 
 <?php class CisUtil
@@ -75,10 +77,9 @@ Description:
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" aria-current="page" href="orderForm.php">Home</a>
+                        <a class="nav-link" aria-current="page" href="orderForm.php">Order</a>
 
-                        <a class="nav-link" href="view.php">Orders</a>
-                        <a class="nav-link" href="resetFile.php">Reset File</a>
+                        <a class="nav-link" href="view.php">View Orders</a>
                     </div>
                 </div>
             </div>
@@ -256,7 +257,23 @@ Description:
         <?php
     }
 
+    /*Formate the money to a Dollar Format*/
+    public static function dollarMoneyFormate($money)
+    {
+        return "$" . number_format($money, 2, '.', ',');
 
+    }
+    /*Formate the money to a Format to of there choice*/
+    public static function moneyFormate($money, $symbol = '$')
+    {
+        return "$" . number_format($money, 2, '.', ',');
+
+    }
+
+    //Send a alertbox with a message. Used for debugging
+    public static function sendMessageBox($message){
+        echo "<script>alert('". $message ."')</script>";
+    }
 }
 
 ?>
