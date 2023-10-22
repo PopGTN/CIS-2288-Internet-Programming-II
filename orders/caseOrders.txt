@@ -1,0 +1,4 @@
+Joshua	19027860920	redbluegreen188@gmail.com	3 iPhone 12	0 iPhone 13	0 Samsung Galaxy	0 Google Pixel
+Joshua	19027860920	redbluegreen188@gmail.com	10 iPhone 12	9 iPhone 13	0 Samsung Galaxy	0 Google Pixel	10/22/2023	2:03am	335
+Joshua	19027860920	redbluegreen188@gmail.com	10 iPhone 12	9 iPhone 13	0 Samsung Galaxy	0 Google Pixel	10/22/2023	2:04am	335.00
+Joshua	19027860920	redbluegreen188@gmail.com	10 iPhone 12	9 iPhone 13	0 Samsung Galaxy	0 Google Pixel	10/22/2023	2:04am	$335.00

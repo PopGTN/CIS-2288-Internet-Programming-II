@@ -75,10 +75,10 @@ Description:
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active " aria-current="page" href="orderForm.php">Home</a>
-                        <a class="nav-link" href="#">Features</a>
-                        <a class="nav-link" href="view.php">Orders</a>
+                        <a class="nav-link" aria-current="page" href="orderForm.php">Home</a>
 
+                        <a class="nav-link" href="view.php">Orders</a>
+                        <a class="nav-link" href="resetFile.php">Reset File</a>
                     </div>
                 </div>
             </div>
@@ -100,6 +100,7 @@ Description:
      * @param $text "either array of Custom html or just text"
      * @param $style "Set all the style here. Leave out style for default Settings" <br>
      * $style = [ <br>
+     * 'image' => '', <br>
      * 'bgColor' => "#D3D3D3FF", <br>
      * 'height' => "200px", <br>
      * 'fontColor' => 'black', <br>
@@ -115,6 +116,12 @@ Description:
      * 'bottomSpacing' => '1rem', <br>
      * 'textAlign'=> 'center', <br>
      * 'STTextAlign'=> 'center', <br>
+     * 'fontSize' => "", <br>
+     * 'STFontSize' => "", <br>
+     * 'bgRepeat' => 'no-repeat', <br>
+     * 'bgPosition' => 'center', <br>
+     * 'bgSize' => 'cover', <br>
+     * 'alignText' => 'center' <br>
      * ];
      * @return void
      */
@@ -126,15 +133,18 @@ Description:
             'height' => "200px",
             'fontColor' => 'black',
             'classes' => 'container',
-            'titleClasses' => 'display-1',
+            'titleClasses' => 'display-3',
             'STClasses' => '',
             'underline' => true,
-            'underlineWidth' => "2px",
+            'underlineWidth' => "3px",
             'STUnderline' => false,
-            'STUnderlineSize' => "3px",
-            'bottomSpacing' => '1rem',
-            'textAlign' => 'center',
-            'STTextAlign' => 'center',
+            'STUnderlineWidth' => "2px",
+            'STFontSize' => "1.8em",
+            'bottomSpacing' => "0.5rem",
+            'bgRepeat' => 'no-repeat',
+            'bgPosition' => 'center',
+            'bgSize' => 'cover',
+            'alignText' => 'center'
         ];
         // Merge default style with provided style
         $style = array_merge($defaultStyle, $style);
@@ -147,7 +157,7 @@ Description:
         if (!isset($style['underlineColor'])) {
             $style['underlineColor'] = $style['fontColor'];
         }
-        if (!isset($style['underlineColor'])) {
+        if (!isset($style['STUnderlineColor'])) {
             $style['STUnderlineColor'] = $style['STFontColor'];
         }
         if (!isset($style['STBottomSpacing'])) {
@@ -164,11 +174,13 @@ Description:
                 <?php if (!empty($style['image'])) { ?>
                         background-image: url('<?= $style['image'] ?>');
                 <?php } ?>
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
+
+
+                        background-size: <?=$style['bgSize']?>;
+                        background-position: <?=$style['bgPosition']?>;
+                        background-repeat:  <?=$style['bgRepeat']?>;
                         display: flex;
-                        justify-content: center;
+                        justify-content: <?=$style['alignText']?>;
                         align-items: center;
                         "
         >
@@ -177,34 +189,41 @@ Description:
                 if (is_array($text)) {
 
                     ?>
-                    <h1 class="<?= $style['titleClasses'] ?>"
+                    <h2 class="<?= $style['titleClasses'] ?>"
                         style="
                                 width: fit-content; margin: auto;
                                 color: <?= $style['fontColor'] ?>;
                                 margin-bottom: <?= $style['bottomSpacing'] ?>;
-                                text-align: <?= $style['STTextAlign'] ?>;
+
                         <?php if ($style['underline']) { ?>
                                 border-bottom-color: <?= $style['underlineColor']?>;
                             border-bottom-style: solid;
                             border-bottom-width: <?=$style['underlineWidth'] ?>;
                         <?php } ?>
+                        <?php if (isset($style['fontSize'])) { ?>
+                                font-size: <?=$style['fontSize']?>;
+                        <?php } ?>
 
                                 ">
                         <?= $text[0] ?>
-                    </h1>
+                    </h2>
                     <?php
                     for ($x = 1; $x < count($text); $x++) { ?>
                         <p class="<?= $style['STClasses'] ?>"
                            style="
+                                   width: fit-content; margin: auto;
                                    color: <?= $style['STFontColor'] ?>;
-                                   text-align: <?= $style['STTextAlign'] ?>;
+
                            <?php if ($x != (count($text) - 1)) { ?>
                                    margin-bottom: <?= $style['STBottomSpacing']?>;
                         <?php } ?>
                            <?php if ($style['STUnderline']) { ?>
                                    border-bottom-color: <?= $style['STUnderlineColor']?>;
-                            border-bottom-width: <?=$style['STUnderlineWidth'] ?>;
-                            border-bottom-style: solid;
+                                   border-bottom-width: <?= $style['STUnderlineWidth'] ?>;
+                                   border-bottom-style: solid;
+                        <?php } ?>
+                           <?php if (isset($style['STFontSize'])) { ?>
+                                   font-size: <?=$style['STFontSize']?>;
                         <?php } ?>
 
                                    ">
@@ -214,20 +233,22 @@ Description:
 
                     <?php }
                 } else { ?>
-                    <h1 class="<?= $style['titleClasses'] ?>"
+                    <h2 class="<?= $style['titleClasses'] ?>"
                         style="
                                 color: <?= $style['fontColor'] ?>;
                                 margin-bottom: <?= $style['bottomSpacing'] ?>;
-                                text-align: <?= $style['STTextAlign'] ?>;
                         <?php if ($style['underline']) { ?>
                                 border-bottom-color: <?= $style['underlineColor']?>;
-                            border-bottom-style: solid;
-                            border-bottom-width: <?=$style['underlineWidth'] ?>;
+                                border-bottom-style: solid;
+                                border-bottom-width: <?=$style['underlineWidth'] ?>;
+                        <?php } ?>
+                        <?php if (isset($style['fontSize'])) { ?>
+                                font-size: <?=$style['fontSize']?>;
                         <?php } ?>
 
                                 ">
                         <?= $text ?>
-                    </h1>
+                    </h2>
                 <?php }
                 ?>
             </div>
