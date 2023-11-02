@@ -35,6 +35,8 @@ class FormBuilderUtil
 
 class FormBuilder
 {
+    
+    private $row
     private $form;
     private $linebreaks = false;
 
@@ -63,7 +65,7 @@ class FormBuilder
     public function addLabel($for, $text, $attributes = '')
     {
         if ($this->linebreaks) {
-            $this->form .= "<label for='{$for}' {$attributes}>{$text}</label><br>";
+            $this->form .= "<label for='{$for}' {$attributes}>{$text}</label>";
 
         } else {
             $this->form .= "<label for='{$for}' {$attributes}>{$text}</label> ";
