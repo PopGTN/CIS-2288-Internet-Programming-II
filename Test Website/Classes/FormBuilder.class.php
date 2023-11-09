@@ -35,8 +35,6 @@ class FormBuilderUtil
 
 class FormBuilder
 {
-    
-    private $row
     private $form;
     private $linebreaks = false;
 

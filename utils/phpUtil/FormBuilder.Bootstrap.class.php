@@ -248,7 +248,7 @@ class BSFormBuilder
      * @param string $attributes
      * @return void
      */
-    public function addRadioBTN ($id, $name, $value, $label, $classes = '', $attributes = ''){
+    public function addRadioBTN ($id, $name, $value, $label = '', $classes = '', $attributes = ''){
 /*        $colstarted  = $this->col ? true : false;
         $divstarted  = $this->div ? true : false;
 
@@ -259,6 +259,9 @@ class BSFormBuilder
             $this->div();
         }*/
 
+        if (empty($label)){
+            $label = $value;
+        }
         $this->form .= "<div ".($this->settings['bootstrap'] ? "class=\"form-check {$classes}\"" : "class=\"{$classes}\"")."{$attributes} >";
         $this->form .= "<input ".($this->settings['bootstrap'] ? "class=\"form-check-input {$classes}\"" : "")." type=\"radio\" id=\"{$id}\" name=\"{$name}\" value=\"{$value}\" >";
         $this->form .= "<label ".($this->settings['bootstrap'] ? "class=\"form-check-label {$classes}\"" : "style=\"margin-left: 5px;\"")." >{$label}</label>";
@@ -363,7 +366,7 @@ class BSFormBuilder
                     $this->form .= ' <option value="' . $item . '">' . '</option>';
                 }
             }
-            $this->form .= '</data>' . ($this->settings['autoBrk'] ? "<br>" : "");
+            $this->form .= '</datalist>' . ($this->settings['autoBrk'] ? "<br>" : "");
 
 
             if ($colstarted && $this->settings['autoFrmtRow']){
@@ -468,7 +471,7 @@ class BSFormBuilder
                     break;
                 case "open":
                 case "o":
-                    $this->form .= "<div " . ($this->settings['bootstrap'] ? "class=\"col {$classes}\"" : "class=\"{$classes}\" style=\"display: inline-block; margin: 10px;\"") . " " . $attributes . ">";
+                    $this->form .= "<div " . ($this->settings['bootstrap'] ? "class=\"mb-3 col {$classes}\"" : "class=\"{$classes}\" style=\"display: inline-block; margin: 10px;\"") . " " . $attributes . ">";
                     break;
             }
         }
@@ -483,7 +486,7 @@ class BSFormBuilder
                 break;
             case "open":
             case "o":
-                $this->form .= '<div ' . ($this->settings['bootstrap'] ? "class=\"mb-3 mt-3 {$classes}\"" : "class=\"{$classes}\" style=\"margin: 10px;\"") . ' ' . $attributes . '>';
+                $this->form .= '<div ' . ($this->settings['bootstrap'] ? "class=\"mb-3 {$classes}\"" : "class=\"{$classes}\" style=\"margin: 10px;\"") . ' ' . $attributes . '>';
                 break;
         }
     }

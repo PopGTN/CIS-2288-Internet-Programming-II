@@ -1,21 +1,17 @@
-<!--
-Author: Joshua Mckenna
-Date: 2023/09/27
-Description:
-    This class is for making random tasks alot quicker.  This Class will be updated throughout the school year when need!
-	
-Modified by Joshua Mckenna since 2023/10/22
-
-Modified 2023/10/31 by Joshua Mckenna
-
-not SELF
-
-$result = condition ? value1(if true) : value2(if false);
-
--->
-
-<?php class CisUtil
+<?php
+/**
+ * Author: Joshua Mckena
+ * Date: 2023/09/27
+ * Description:
+ * This class is for making random tasks alot quicker.  This Class will be updated throughout the school year when need!
+ *
+ * Modified by Joshua Mckenna since 2023/10/22
+ *
+ * Modified 2023/11/07 by Joshua Mckenna
+ */
+class CisUtil
 {
+
 
     /**
      * Creates the starting section of a new html page
@@ -43,7 +39,8 @@ $result = condition ? value1(if true) : value2(if false);
                     min-height: 100vh;
                 }
 
-                /*main,*/.page, .main {
+                /*main,*/
+                .page, .main, #main {
                     flex: 1 0 auto;
                 }
 
@@ -51,7 +48,7 @@ $result = condition ? value1(if true) : value2(if false);
                     flex-shrink: 0;
                 }
 
-                .inputDiv{
+                .inputDiv {
                     margin: 0px;
                 }
 
@@ -163,26 +160,27 @@ $result = condition ? value1(if true) : value2(if false);
             });
         }
     }
+
     /**
      * Used to see if an string is in array list
-     *
-     * @author Joshua Mckenna
      *
      * @param string $text
      * @param array $array
      * @param boolean $caseCmp
      * @return boolean
+     * @author Joshua Mckenna
+     *
      */
     public static function isInArray($text, $array = array("text",), $caseCmp = false)
     {
         if (is_array($array) && is_string($text)) {
             foreach ($array as $key => $item) {
                 if ($caseCmp) {
-                    if (strcasecmp($text,$item) == 0){
+                    if (strcasecmp($text, $item) == 0) {
                         return true;
                     }
                 } else {
-                    if (strcmp($text,$item) == 0){
+                    if (strcmp($text, $item) == 0) {
                         return true;
                     }
                 }
@@ -190,32 +188,118 @@ $result = condition ? value1(if true) : value2(if false);
         }
         return false;
     }
+
     /**
      * Used to see if an string is a key in a array
-     *
-     * @author Joshua Mckenna
      *
      * @param string $text
      * @param array $array
      * @param boolean $caseCmp
      * @return boolean
+     * @author Joshua Mckenna
+     *
      */
     public static function isInArrayKey($text, $array = array("text",), $caseCmp = false)
     {
         if (is_array($array) && is_string($text)) {
             foreach ($array as $key => $item) {
                 if ($caseCmp) {
-                    if (strcasecmp($text,$key) == 0){
+                    if (strcasecmp($text, $key) == 0) {
                         return true;
                     }
                 } else {
-                    if (strcmp($text,$key) == 0){
+                    if (strcmp($text, $key) == 0) {
                         return true;
                     }
                 }
             }
         }
         return false;
+    }
+
+    /**
+     * @param $array
+     * @return bool
+     */
+    public static function isMultidimensionalArray($array)
+    {
+        if (!is_array($array)) {
+            return false;
+        } else {
+            foreach ($array as $item) {
+                if (is_array($item)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public static function is_associative_array($array)
+    {
+        return (is_array($array) && !is_numeric(implode("", array_keys($array))));
+    }
+
+    public static function is_ass_array($array)
+    {
+        is_associative_array($array);
+    }
+
+    /**
+     * Used to put spaces before Upcases
+     * @param $inputString
+     * @return array|string|string[]|null
+     */
+    public static function caseSpaceString($inputString)
+    {
+        // Use preg_replace to add a space before each uppercase letter
+        $modifiedString = preg_replace('/([A-Z])/', ' $1', $inputString);
+        $modifiedString = ucfirst($modifiedString);
+        $modifiedString = trim($modifiedString);;
+        return $modifiedString;
+    }
+
+    public static function arrayToHtmlList($array)
+    {
+        $output = "";
+        if (is_array($array)) {
+            $output .= "<ul>";
+            if (!CisUtil::is_associative_array($array)) {
+                foreach ($array as $key => $item) {
+                    $output .= "<li>" . $item . "</li>";
+                }
+            } else {
+
+                foreach ($array as $key => $item) {
+                    $output .= "<li> <strong class=\"text-capitalize\">" . CisUtil::caseSpaceString($key) . ": </strong>" . $item . "</li>";
+                }
+
+            }
+            $output .= "</ul>";
+            return $output;
+        } else {
+            return $array;
+        }
+    }
+    public static function arrayToText($array, $autoBrk = true)
+    {
+        $output = "";
+        if (is_array($array)) {
+            if (!CisUtil::is_associative_array($array)) {
+                foreach ($array as $key => $item) {
+                    $output .= $item . ($autoBrk ? "<br>" : ", ");
+                }
+            } else {
+
+                foreach ($array as $key => $item) {
+                    $output .= "<strong class=\"text-capitalize\">" . CisUtil::caseSpaceString($key) . ": </strong>" . $item . ($autoBrk ? "<br>" : ", ");
+                }
+
+            }
+            return $output;
+        } else {
+            return $array;
+        }
     }
 
 }

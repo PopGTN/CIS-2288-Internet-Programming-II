@@ -1,4 +1,11 @@
 <?php
+/**
+Author: Joshua Mckenna
+Date: 2023/09/27
+Description: Album object class
+*/
+
+require_once 'CisUtil.class.php';
 
 class album
 {
@@ -7,7 +14,6 @@ class album
     private $artist;
     private $publisher;
     private $genre;
-    private $songs = [];
     private $data = array();
 
     /**
@@ -17,13 +23,12 @@ class album
      * @param string $genre
      * @param array $songs
      */
-    public function __construct($albumTitle, $artist, $publisher, $genre, $songs)
+    public function __construct($albumTitle, $artist, $publisher, $genre)
     {
         $this->albumTitle = $albumTitle;
         $this->artist = $artist;
         $this->publisher = $publisher;
         $this->genre = $genre;
-        $this->songs = $songs;
     }
     /**
      * The __get() method (Magic Methods) is called whenever you attempt to read a non-existing
@@ -63,13 +68,52 @@ class album
         }
     }
 
+    /**
+     * Retursn the class attributes.
+     * @return string
+     */
     public function __toString()
     {
-        return "Album: {$this->albumTitle} \t
-        Artist: {$this->artist} \t
-        Publisher: {$this->publisher} \t
-        Genre: {$this->genre} \t
-        Songs: ". implode(", ", $this->songs);
+        return "<strong>Album Title:</strong> $this->albumTitle <br>
+            <strong>Artist:</strong> $this->artist<br>
+            <strong>Publisher:</strong> $this->publisher<br>
+            <strong>Genre:</strong> $this->genre<br>"
+            . $this->showCustomAttributes();
     }
+
+    /**
+     * Used to get Custom Attributesas tostring
+     * @return string
+     */
+    private function showCustomAttributes(){
+        //loop through data array and ouput the key(attribute name) value(attribute value)
+        $output = "";
+        foreach ($this->data as $attributeName => $attributeValue){
+
+            //finds what type of $attribute it is (example: string/array/ associative array )
+            // string will be just outputed like normal. but array lists will be put into a list
+            if (!is_array($attributeValue)){
+                $output .= "<strong class=\"text-capitalize\">" . CisUtil::caseSpaceString($attributeName) . ":</strong> " . $attributeValue . "</br>";
+            } else {
+                $output .= "<strong class=\"text-capitalize\">". CisUtil::caseSpaceString($attributeName).":</strong> <br>";
+                $output .= "<ul>";
+                if (!CisUtil::is_associative_array($attributeValue)) {
+                    foreach ($attributeValue as $key => $item) {
+                        $output .= "<li>".$item."</li>";
+                    }
+                }
+                else {
+                    foreach ($attributeValue as $key => $item) {
+                        $output .= "<li> <strong class=\"text-capitalize\">".CisUtil::caseSpaceString($key).": </strong>".$item."</li>";
+                    }
+                }
+
+
+                $output .= "</ul>";
+            }
+        }
+        return $output;
+    }
+
 
 }

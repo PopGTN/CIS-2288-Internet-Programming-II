@@ -81,38 +81,12 @@ class Header
     }
 
     /**
-     * @param array  "Set all the style here. Leave out style for default Settings" <br>
-     *  $style = [ <br>
-     *  'image' => '', <br>
-     *  'bgColor' => "#D3D3D3FF", <br>
-     *  'height' => "200px", <br>
-     *  'fontColor' => 'black', <br>
-     *  'classes' => 'container', <br>
-     *  'titleClasses' => 'display-1', <br>
-     *  'STClasses' => '', <br>
-     *  'underline' => true, <br>
-     *  'underlineColor' => "black", <br>
-     *  'underlineWidth' => "2px", <br>
-     *  'STUnderline' => false, <br>
-     *  'STUnderlineColor' => "black", <br>
-     *  'STUnderlineSize' => "3px", <br>
-     *  'bottomSpacing' => '1rem', <br>
-     *  'textAlign'=> 'center', <br>
-     *  'STTextAlign'=> 'center', <br>
-     *  'fontSize' => "", <br>
-     *  'STFontSize' => "", <br>
-     *  'bgRepeat' => 'no-repeat', <br>
-     *  'bgPosition' => 'center', <br>
-     *  'bgSize' => 'cover', <br>
-     *  'alignText' => 'center' <br>
-     *  ];
+     * @param $style
      * @return void
      */
     public function setStyle($style)
     {
-        if (is_array($style)) {
-            $this->style = array_merge($this->style, $style);
-        }
+        $this->style = array_merge($this->style, $style);
     }
 
     /**
@@ -124,8 +98,7 @@ class Header
         $this->text = $text;
     }
 
-    public function build()
-    {
+    public function build() {
         ?>
 
         <header class="<?= $this->style['classes'] ?>"
@@ -215,6 +188,7 @@ class Header
             </div>
         </header>
     <?php }
+
 
 
 }
