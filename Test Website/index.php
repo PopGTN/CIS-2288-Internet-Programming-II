@@ -55,7 +55,6 @@ CisUtil::navbar();
 
         <?= $form->build()?>
 
-        <script src="js/switch.js"></script>
     </main>
 
 <?php

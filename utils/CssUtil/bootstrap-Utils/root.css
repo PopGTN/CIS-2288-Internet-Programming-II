@@ -1,0 +1,13 @@
+@import "Custom-Bootstrap-Util.css";
+
+:root,
+[data-bs-theme=light] {
+    --bs-primary: #6610f2;
+    --bs-primary-rgb: 102, 16, 242;
+    --bs-primary-bg-subtle: #c29ffa;
+    --bs-primary-border-subtle: #8540f5;
+    --bs-nav-link-color: var(--bs-white);
+}
+
+[data-bs-theme=dark] {
+}
