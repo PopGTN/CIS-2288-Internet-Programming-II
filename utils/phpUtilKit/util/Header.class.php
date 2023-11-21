@@ -9,7 +9,7 @@
 class Header
 {
     const DEFAULT_STYLE = [
-        'bgColor' => "var(--header)",
+        'bgColor' => "#d3d3d3",
         'height' => "200px",
         'fontColor' => '',
         'classes' => '',
@@ -25,7 +25,7 @@ class Header
         'bgRepeat' => 'no-repeat',
         'bgPosition' => 'center',
         'bgSize' => 'cover',
-        'textCenter' => true
+        'alignText' => "center"
     ];
     private $text;
     private $style;
@@ -49,8 +49,8 @@ class Header
      * 'STUnderlineColor' => "black", <br>
      * 'STUnderlineSize' => "3px", <br>
      * 'bottomSpacing' => '1rem', <br>
-     * 'textCenter'=> true, <br>
-     * 'STTextCenter'=> 'true, <br>
+     * 'alignText'=> true, <br>
+     * 'STAlignText'=> 'true, <br>
      * 'fontSize' => "", <br>
      * 'STFontSize' => "", <br>
      * 'bgRepeat' => 'no-repeat', <br>
@@ -76,10 +76,9 @@ class Header
         if (!isset($this->style['STBottomSpacing'])) {
             $this->style['STBottomSpacing'] = $this->style['bottomSpacing'];
         }
-
         $this->text = $text;
-        if (!isset($this->style['STTextCenter'])) {
-            $this->style['STTextCenter'] = $this->style['textCenter'];
+        if (!isset($this->style['STAlignText'])) {
+            $this->style['STAlignText'] = $this->style['alignText'];
         }
 
     }
@@ -104,72 +103,57 @@ class Header
 
     public function build()
     {
+        $alignText = "";
+        $STAlignText = "";
+        switch (strtolower($this->style['alignText'])) {
+            case "center":
+                $alignText = "justify-content: center;";
+                break;
+            case"start":
+            case "left":
+                $alignText = "justify-content: flex-start;";
+                break;
+            case"end":
+            case "right":
+                $alignText = "justify-content: flex-end;";
+                break;
+            default:
+                break;
+        }
+        switch (strtolower($this->style['STAlignText'])) {
+            case "center":
+                $STAlignText = "justify-content: center;";
+                break;
+            case"start":
+            case "left":
+                $STAlignText = "justify-content: flex-start;";
+                break;
+            case"end":
+            case "right":
+                $STAlignText = "justify-content: flex-end;";
+                break;
+            default:
+                break;
+        }
+
+
         ?>
-
         <header class="<?= $this->style['classes'] ?>"
-                style="
-                <?= 'background-color: ' . $this->style['bgColor'] ?>;
-                <?= "min-height: " . $this->style['height'] ?>;
-                <?php if (!empty($this->style['image'])) { ?>
-                        background-image: url('<?= $this->style['image'] ?>');
-                <?php } ?>
-
-
-                        background-size: <?= $this->style['bgSize'] ?>;
-                        background-position: <?= $this->style['bgPosition'] ?>;
-                        background-repeat:  <?= $this->style['bgRepeat'] ?>;
-                        display: flex;
-                        align-items: center;
-                        "
-        >
-            <!--<div class="<?php /*= $this->style['textDivClasses'] */?>">-->
-                <div class="<?= $this->style['textDivClasses'] ?>" <?=($this->style['textCenter'] ? 'style="width: fit-content; margin: auto;"' : "")?>>
+                style=" <?= 'background-color: ' . $this->style['bgColor'] ?>; <?= "min-height: " . $this->style['height'] ?>; <?php if (!empty($this->style['image'])) { ?> background-image: url('<?= $this->style['image'] ?>'); <?php } ?> <?= $alignText ?> background-size: <?= $this->style['bgSize'] ?>; background-position: <?= $this->style['bgPosition'] ?>; background-repeat: <?= $this->style['bgRepeat'] ?>; display: flex; align-items: center; ">
+            <div class="<?= $this->style['textDivClasses'] ?>">
                 <?php
                 if (is_array($this->text)) {
 
                     ?>
-                    <div style="width: fit-content; /*margin: auto;*/ >; ">
                     <h1 class="<?= $this->style['titleClasses'] ?>"
-                        style="
-                                width: fit-content;
-                        <?= ($this->style['textCenter'] ? "margin: auto;" : "") ?>
-                                margin-bottom: <?= $this->style['bottomSpacing'] ?>;
-
-
-                        <?php if ($this->style['underline']) { ?>
-                                border-bottom-color: <?= $this->style['underlineColor']?>;
-                                    border-bottom-style: solid;
-                                    border-bottom-width: <?=$this->style['underlineWidth'] ?>;
-                        <?php } ?>
-                        <?php if (isset($this->style['fontSize'])) { ?>
-                                font-size: <?=$this->style['fontSize']?>;
-                        <?php } ?>
-
-                                ">
+                        style="width: fit-content; margin: auto; margin-bottom: <?= $this->style['bottomSpacing'] ?>; <?php if ($this->style['underline']) { ?> border-bottom-color: <?= $this->style['underlineColor']?>; border-bottom-style: solid; border-bottom-width: <?=$this->style['underlineWidth'] ?>; <?php } ?> <?php if (isset($this->style['fontSize'])) { ?> font-size: <?=$this->style['fontSize']?>; <?php } ?>">
                         <?= $this->text[0] ?>
                     </h1>
-
+                    <div style="display: flex; align-items: center; <?= $STAlignText ?>">
                         <?php
                         for ($x = 1; $x < count($this->text); $x++) { ?>
                             <p class="<?= $this->style['STClasses'] ?>"
-                               style="
-                                       width: fit-content;
-                               <?= ($this->style['STTextCenter'] ? "margin: auto;" : "") ?>
-                                       color: <?= $this->style['STFontColor'] ?>;
-
-                               <?php if ($x != (count($this->text) - 1)) { ?>
-                                       margin-bottom: <?= $this->style['STBottomSpacing']?>;
-                        <?php } ?>
-                               <?php if ($this->style['STUnderline']) { ?>
-                                       border-bottom-color: <?= $this->style['STUnderlineColor']?>;
-                                   border-bottom-width: <?= $this->style['STUnderlineWidth'] ?>;
-                                   border-bottom-style: solid;
-                        <?php } ?>
-                               <?php if (isset($this->style['STFontSize'])) { ?>
-                                       font-size: <?=$this->style['STFontSize']?>;
-                        <?php } ?>
-
-                                       ">
+                               style="width: fit-content; color: <?= $this->style['STFontColor'] ?>; <?php if ($x != (count($this->text) - 1)) { ?> margin-bottom: <?= $this->style['STBottomSpacing']?>; <?php } ?> <?php if ($this->style['STUnderline']) { ?> border-bottom-color: <?= $this->style['STUnderlineColor']?>; border-bottom-width: <?= $this->style['STUnderlineWidth'] ?>; border-bottom-style: solid; <?php } ?> <?php if (isset($this->style['STFontSize'])) { ?> font-size: <?=$this->style['STFontSize']?>; <?php } ?> ">
                                 <?= $this->text[$x] ?>
                             </p>
 
@@ -178,19 +162,7 @@ class Header
                     <?php
                 } else { ?>
                     <h1 class="<?= $this->style['titleClasses'] ?>"
-                        style="
-                                color: <?= $this->style['fontColor'] ?>;
-                                margin-bottom: <?= $this->style['bottomSpacing'] ?>;
-                        <?php if ($this->style['underline']) { ?>
-                                border-bottom-color: <?= $this->style['underlineColor']?>;
-                                border-bottom-style: solid;
-                                border-bottom-width: <?=$this->style['underlineWidth'] ?>;
-                        <?php } ?>
-                        <?php if (isset($this->style['fontSize'])) { ?>
-                                font-size: <?=$this->style['fontSize']?>;
-                        <?php } ?>
-
-                                ">
+                        style=" width: fit-content; margin: auto; color: <?= $this->style['fontColor'] ?>; margin-bottom: <?= $this->style['bottomSpacing'] ?>; <?php if ($this->style['underline']) { ?> border-bottom-color: <?= $this->style['underlineColor']?>; border-bottom-style: solid; border-bottom-width: <?=$this->style['underlineWidth'] ?>; <?php } ?> <?php if (isset($this->style['fontSize'])) { ?> font-size: <?=$this->style['fontSize']?>; <?php } ?> ">
                         <?= $this->text ?>
                     </h1>
                 <?php }

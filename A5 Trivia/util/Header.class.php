@@ -10,10 +10,10 @@ class Header
 {
     const DEFAULT_STYLE = [
         'bgColor' => "#d3d3d3",
-        'height' => "200px",
+        'height' => "100px",
         'fontColor' => '',
-        'classes' => '',
-        'textDivClasses' => 'container',
+        'classes' => 'container',
+        'textDivClasses' => '',
         'titleClasses' => 'display-3',
         'STClasses' => '',
         'underline' => true,
