@@ -9,7 +9,7 @@
 class Header
 {
     const DEFAULT_STYLE = [
-        'bgColor' => "#d3d3d3",
+        'bgColor' => "var(--header)",
         'height' => "200px",
         'fontColor' => '',
         'classes' => '',

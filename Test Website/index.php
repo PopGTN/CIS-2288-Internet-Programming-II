@@ -37,7 +37,7 @@ $form->addInput("text", "lName");
 
 
 
-$header = new Header(array("Hello world", "Welcome to my website"), array("height" => "400px"));
+$header = new Header(array("Hello world", "Welcome to my website"), array("height" => "200px"));
 
 
 CisUtil::startPage("Test Website");

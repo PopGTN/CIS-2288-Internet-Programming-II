@@ -11,10 +11,11 @@ include "fragments/navbar.php";
 
 <?php
 /*Header*/
-$header = new Header(array("YourName's Website","Welcome to my Website"), array("height" => "158px", "textAlign"));
+$header = new Header(array("YourName's Website","Welcome to my Website"), array("height" => "158px", "textAlign","classes"=>"container"));
 $header->build()
 ?>
     <main id="main" class="container ">
+        <section class="document-strict mx-auto">
         <h2>Sportsman delighted improving dashwoods gay instantly happiness six</h2>
         <p>Style too own civil out along. Perfectly offending attempted add arranging age gentleman concluded. Get who
             uncommonly our expression ten increasing considered occasional travelling. Ever read tell year give may men
@@ -51,6 +52,7 @@ $header->build()
         <p>Affronting discretion as do is announcing. Now months esteem oppose nearer enable too six. She numerous
             unlocked you perceive speedily. Affixed offence spirits or ye of offices between. Real on shot it were four
             an as. Absolute bachelor rendered six nay you juvenile. Vanity entire an chatty to.</p>
+        </section>
     </main>
 <?php
 

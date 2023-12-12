@@ -1,11 +1,12 @@
 
-
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--body-bg) !important;
 }
-#main {
+
+#main, #main-container {
     flex: 1 0 auto;
 }
 
@@ -14,11 +15,58 @@ footer {
 }
 
 
-
-#main, .bodyColor {
+#main, .body-color, #main-container .container {
     background-color: var(--bs-body-bg) !important;
 }
 
-body {
-    background-color: var(--body-bg) !important;
+.text-indent {
+    text-indent: 50px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/******************************************
+
+These classes below are different options
+for making a webage comply to web article
+standards on paragraphs sizing for width
+
+*******************************************/
+
+.document-fluid h1, .document-fluid h2, .document-fluid h3, .document-fluid h4, .document-fluid h5, .document-fluid h6, .document-fluid p {
+    max-width: 75ch;
+    @media screen and (max-width: 768px) {
+        max-width: 100%;
+    }
+}
+.document {
+    max-width: 75ch;
+    @media screen and (max-width: 768px) {
+        max-width: 100%;
+    }
+}
+.document-strict {
+    max-width: max(600px, 75ch);
+    @media screen and (max-width: 768px) {
+        max-width: 100%;
+    }
+}
+
+
+.document-p p, p.document-p, span.document-p, .document-strict{
+    font-size: 18px;
+    line-height: 30px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: min(100%, 75ch);
+
+    @media screen and (max-width: 768px) {
+        font-size: 16px;
+        line-height: 26px;
+    }
 }
