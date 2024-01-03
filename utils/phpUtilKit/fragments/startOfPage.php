@@ -22,6 +22,7 @@ $description = isset($description) ? $description : "";
     <link href="<?= $root ?>css/Custom-Bootstrap-Util.css" rel="stylesheet">
     <link href="<?= $root ?>css/root.css" rel="stylesheet">
     <link href="<?= $root ?>css/Custom.css" rel="stylesheet">
+    <link href="<?= $root ?>css/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
     <?php
     //loads the Css links
     if ($cssLinks != "") {

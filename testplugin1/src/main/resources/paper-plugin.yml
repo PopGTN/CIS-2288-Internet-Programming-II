@@ -1,0 +1,5 @@
+name: testplugin1
+version: '${version}'
+main: ca.joshuamc.testplugin1.Testplugin1
+api-version: '1.20'
+load: STARTUP

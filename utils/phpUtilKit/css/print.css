@@ -1,0 +1,19 @@
+:root, body > *, html > * {
+    visibility: hidden;
+}
+
+.print > * , .print {
+    visibility: visible;
+
+}
+
+
+.page, .section {
+    page-break-after: always;
+}
+
+
+.print-display-none, .hide {
+    display: none !important;
+    visibility: hidden !important;
+}

@@ -54,7 +54,7 @@ if (!isset($_POST['submit']) && isset($_GET['id'])) {
 } else {
     require("connect.php");
     global $mysqli;
-    $headline = $mysqli->real_escape_string(CisUtil::cleanInputs($_POST["headline"]));
+    $headline = C;
     $storyId = $mysqli->real_escape_string(CisUtil::cleanInputs($_POST["id"]));
     $storyDetails = $mysqli->real_escape_string(CisUtil::cleanInputs($_POST["storyDetails"]));
 

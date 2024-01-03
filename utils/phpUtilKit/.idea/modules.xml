@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/OnTheSpot.iml" filepath="$PROJECT_DIR$/.idea/OnTheSpot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/phpUtilKit.iml" filepath="$PROJECT_DIR$/.idea/phpUtilKit.iml" />
     </modules>
   </component>
 </project>
